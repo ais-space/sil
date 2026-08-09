@@ -1,0 +1,62 @@
+(* STF — SIL Text Format *)
+(* Formal EBNF Grammar — SIL Specification v1.0.0 *)
+(* This is a machine-readable extract from §2.2.1 of the specification *)
+
+(* ── Character Classes ─────────────────────────────────── *)
+UPPER_ALPHA = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I"
+            | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R"
+            | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z" ;
+LOWER_ALPHA = "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i"
+            | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r"
+            | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" ;
+ALPHA       = UPPER_ALPHA | LOWER_ALPHA ;
+DIGIT       = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+UNDERSCORE  = "_" ;
+DASH        = "-" ;
+DOT         = "." ;
+COLON       = ":" ;
+SPACE       = " " ;
+NEWLINE     = "\n" ;
+TAB         = "\t" ;  (* forbidden in indentation *)
+
+(* ── Lexical Tokens ────────────────────────────────────── *)
+object_name = UPPER_ALPHA, { ALPHA | DIGIT | UNDERSCORE } ;
+
+property_key = standard_key | vendor_key ;
+standard_key = UPPER_ALPHA, { ALPHA | DIGIT } ;
+vendor_key   = reverse_domain, ".", UPPER_ALPHA, { ALPHA | DIGIT } ;
+reverse_domain = LOWER_ALPHA, { LOWER_ALPHA | DIGIT },
+                 { ".", LOWER_ALPHA, { LOWER_ALPHA | DIGIT } } ;
+
+property_value = { char - NEWLINE } ;  (* any characters except newline *)
+
+blank_line = NEWLINE ;
+
+(* ── Syntactic Productions ──────────────────────────────── *)
+document     = { blank_line | top_level_object } ;
+
+top_level_object = object(0) ;
+
+object(d)    = indent(d), object_name, NEWLINE,
+               { blank_line | property_or_object(d+1) } ;
+
+property_or_object(d) = property(d) | object(d) ;
+
+property(d)  = indent(d), property_key, ":", [ " ", property_value ], NEWLINE ;
+
+(* ── Indentation ────────────────────────────────────────── *)
+indent(n)    = n * (4 * SPACE) ;  (* n * 4 spaces *)
+(* depth = indent_spaces / 4 *)
+(* Indentation MUST be a multiple of 4 *)
+(* TAB in indentation is a syntax error *)
+(* Blank line at depth 0 separates top-level objects *)
+(* Blank line at depth > 0 is IGNORED *)
+
+(* ── Canonical Serialization ────────────────────────────── *)
+(* UTF-8 encoding without BOM *)
+(* LF (U+000A) line endings *)
+(* 4-space indentation using U+0020 only *)
+(* No trailing whitespace on any line *)
+(* Property order is semantic-free *)
+(* Final newline required *)
+(* NFC Unicode normalization RECOMMENDED *)

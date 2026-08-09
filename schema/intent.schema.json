@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ais-platform.dev/schemas/sil-intent-v1.0.0.json",
+  "title": "SIL Intent",
+  "description": "JSON Schema for SIL v1.0.0 Intent POST body (§5.4 of the specification)",
+  "type": "object",
+  "required": ["intent", "target"],
+  "properties": {
+    "intent": {
+      "type": "string",
+      "description": "The action to perform (lowercase). See §5.4 Intent-to-Action Mapping for the full list.",
+      "enum": [
+        "expand",
+        "collapse",
+        "select",
+        "toggle",
+        "activate",
+        "navigate",
+        "input",
+        "submit",
+        "close",
+        "loadmore"
+      ]
+    },
+    "target": {
+      "type": "string",
+      "description": "The Id of the target object. Must match the Id property of an object in the current STF document.",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,127}$"
+    },
+    "params": {
+      "type": "object",
+      "description": "Optional parameters for the action. Structure depends on the intent and the target's Expects declaration."
+    },
+    "response_mode": {
+      "type": "string",
+      "description": "Response mode. 'full' returns the complete page state (default). 'events' returns only the Events block.",
+      "enum": ["full", "events"]
+    },
+    "state_version": {
+      "type": "integer",
+      "description": "Optional. The StateVersion from the last GET, for optimistic concurrency (§9.4). Experimental.",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}
