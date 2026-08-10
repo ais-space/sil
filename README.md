@@ -32,21 +32,21 @@ HTML describes how an application **looks**. SIL describes what an application *
 
 ```
 Agent                    SIL Server
-  │                         │
-  │  GET /page.sil          │
-  │────────────────────────>│
-  │                         │
-  │  STF document           │
-  │<────────────────────────│
-  │  (Context + Page)       │
-  │                         │
-  │  POST /page.sil         │
-  │  {"intent":"activate",  │
+  │                           │
+  │  GET /page.sil            │
+  │──────────────────────────>│
+  │                           │
+  │  STF document             │
+  │<──────────────────────────│
+  │  (Context + Page)         │
+  │                           │
+  │  POST /page.sil           │
+  │  {"intent":"activate",    │
   │   "target":"btn_download"}│
-  │────────────────────────>│
-  │                         │
-  │  Updated STF document   │
-  │<────────────────────────│
+  │──────────────────────────>│
+  │                           │
+  │  Updated STF document     │
+  │<──────────────────────────│
 ```
 
 ## Key Features
