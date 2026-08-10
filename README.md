@@ -121,6 +121,7 @@ The canonical specification is **SIL v1.0.0** (protocol version 0.3):
 ```
 sil/
 ├── SIL_Open_Specification_v1.0.0.sil   # Canonical specification
+├── SIL_Concept_v_0_3.md                 # Concept
 ├── README.md                            # This file
 ├── CHANGELOG.md                         # Version history
 ├── ROADMAP.md                           # Future plans
