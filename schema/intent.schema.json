@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://ais-platform.dev/schemas/sil-intent-v1.0.0.json",
+  "$id": "https://ais-platform.dev/schemas/sil-intent-v1.0.1.json",
   "title": "SIL Intent",
-  "description": "JSON Schema for SIL v1.0.0 Intent POST body (§5.4 of the specification)",
+  "description": "JSON Schema for SIL v1.0.1 Intent POST body (§5.4 of the specification)",
   "type": "object",
   "required": ["intent", "target"],
   "properties": {

@@ -35,7 +35,7 @@ Thank you for your interest in contributing to the Semantic Interface Layer (SIL
 
 ## Specification Development
 
-The canonical specification is `SIL_Open_Specification_v1.0.0.sil` — a self-hosting STF document. Changes to the specification are made by editing the parts in `spec/parts/` and reassembling. The specification itself is a valid STF document under its own grammar — run `make validate` to verify.
+The canonical specification is `SIL_Open_Specification.sil` — a self-hosting STF document, itself a valid STF document under its own grammar. Proposed changes are discussed through issues and pull requests; a change should keep the specification internally consistent and self-validating under its grammar.
 
 ## Governance
 

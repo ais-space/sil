@@ -4,6 +4,19 @@ All notable changes to the SIL Specification.
 
 ---
 
+## v1.0.1 (2026-08-15) — Documentation & Nomenclature Corrections
+
+### Corrections
+- Fixed erroneous expansion of the STF acronym: "SIL Text Format" → "Semantic Text Format" across the specification, grammar, and concept documents
+- Removed version-narrative artifacts (v0.4 roadmap references, v0.3 historical asides) per the document versioning policy; the version is now stated exactly once in the document meta-block
+- Renamed canonical files to version-free permanent names: `SIL_Open_Specification.sil`, `SIL_Concept.md`
+
+### Compatibility
+- No protocol or grammar changes; wire protocol remains SIL 0.3, STF grammar 1.0
+- Fully backwards compatible (patch release)
+
+---
+
 ## v1.0.0 (2026-08-08) — First Stable Release
 
 ### Core

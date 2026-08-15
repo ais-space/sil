@@ -1,5 +1,5 @@
-(* STF — SIL Text Format *)
-(* Formal EBNF Grammar — SIL Specification v1.0.0 *)
+(* STF — Semantic Text Format *)
+(* Formal EBNF Grammar — SIL Specification v1.0.1 *)
 (* This is a machine-readable extract from §2.2.1 of the specification *)
 
 (* ── Character Classes ─────────────────────────────────── *)

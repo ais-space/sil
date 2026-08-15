@@ -1,23 +1,23 @@
 Context
     Version: 0.3
-    Document: SIL Specification v1.0.0
+    Document: SIL Specification v1.0.1
     CanonicalSil: /.sil
     Language: en
 
 Page
     Type: Page
     Role: Content
-    Purpose: Full normative specification of the Semantic Interface Layer (SIL) v1.0.0. This document is written in SIL Text Format — it is both the specification and a conformant STF document demonstrating the format it defines. Developed with AIS Agora methodology — iterative review by flagship AI models with context passing.
+    Purpose: Full normative specification of the Semantic Interface Layer (SIL). This document is written in Semantic Text Format — it is both the specification and a conformant STF document demonstrating the format it defines. Developed with AIS Agora methodology — iterative review by flagship AI models with context passing.
 
     SILSpecification
         Type: Page
         Role: Content
-        Purpose: Full normative specification of the Semantic Interface Layer (SIL) v1.0.0.
+        Purpose: Full normative specification of the Semantic Interface Layer (SIL).
 
         Version
             Type: Text
             Caption: Version
-            Content: 1.0.0 (protocol version 0.3)
+            Content: protocol version 0.3
 
         Date
             Type: Text
@@ -46,12 +46,12 @@ Page
                 Content: Reference implementations, test suites, and accompanying code are licensed under the Apache License 2.0. You may use, modify, and distribute the code under the terms of that license.
 
             Text
-                Content: AIS Platform uses the names SIL, Semantic Interface Layer, and STF to identify this project and its protocol. No trademark registration is claimed for these names. The specification itself is freely implementable — this license does not restrict anyone from building conformant SIL implementations, services, or tools. Implementations MAY describe themselves as "conformant to SIL v1.0.0" or "compatible with SIL v1.0.0" without additional permission. Use of these names in a way that implies endorsement by AIS Platform requires prior written agreement.
+                Content: AIS Platform uses the names SIL, Semantic Interface Layer, and STF to identify this project and its protocol. No trademark registration is claimed for these names. The specification itself is freely implementable — this license does not restrict anyone from building conformant SIL implementations, services, or tools. Implementations MAY describe themselves as "conformant to SIL" or "compatible with SIL" without additional permission. Use of these names in a way that implies endorsement by AIS Platform requires prior written agreement.
 
         DateNote
             Type: Text
             Caption: Date
-            Content: 2026-08-08 — Last Updated (v1.0.0). This document is versioned in git. The date reflects the most recent revision of the specification text.
+            Content: 2026-08-08 — Last Updated. This document is versioned in git. The date reflects the most recent revision of the specification text.
 
         Notation
             Type: Section
@@ -74,7 +74,7 @@ Page
             Term
                 Type: Text
                 Caption: STF
-                Content: SIL Text Format — the semantic document format (§2)
+                Content: Semantic Text Format — the semantic document format (§2)
 
             Term
                 Type: Text
@@ -129,7 +129,7 @@ Page
             Term
                 Type: Text
                 Caption: StateVersion
-                Content: A monotonically increasing integer representing page state version. Experimental in v0.3 (§9.4)
+                Content: A monotonically increasing integer representing page state version. Experimental (§9.4)
 
         WhatIsSIL
             Type: Section
@@ -191,7 +191,7 @@ Page
                 Content: SIL is designed to: expose application semantics to intelligent agents, minimize token usage compared to HTML/DOM traversal, remain human-readable and machine-interpretable, avoid coupling to any specific framework or language, support both pages with HTML counterparts and agent-only pages, enable independent implementations from specification alone.
 
             Text
-                Content: SIL is NOT designed to: replace REST APIs or HTML, encode business logic or workflows, become a programming language or scripting environment, transport binary data or rich media, serve as an authentication or session protocol (v0.3 is scoped to public interfaces; authenticated access is planned for a future version), replace accessibility standards (ARIA, WCAG), serve as an agent-to-agent communication protocol, become a tool-calling or function-calling format (SIL describes interfaces; MCP and similar protocols execute tools), replace database schemas or data serialization formats.
+                Content: SIL is NOT designed to: replace REST APIs or HTML, encode business logic or workflows, become a programming language or scripting environment, transport binary data or rich media, serve as an authentication or session protocol (SIL is scoped to public interfaces; authenticated access is planned for a future version), replace accessibility standards (ARIA, WCAG), serve as an agent-to-agent communication protocol, become a tool-calling or function-calling format (SIL describes interfaces; MCP and similar protocols execute tools), replace database schemas or data serialization formats.
 
         ThreeLayerArchitecture
             Type: Section
@@ -231,7 +231,7 @@ Page
                 Content: A server MAY expose pages that exist only in SIL, without any HTML counterpart. These are called Agent Spaces. They are accessed via /{path}.sil only — the HTML URL /path returns 404. They do not have headers, footers, or navigation menus (no human UI to mirror). They appear in SiteNavigation under AgentSpaces with State: Selected marker. They are listed separately from human-facing pages so the agent understands the distinction immediately.
 
             Text
-                Content: Agent Spaces are public in v1.0.0. Access control is out of scope and planned for a future version with authenticated SIL. They may accept direct data submissions (§5.4) without step-by-step forms. Agent Spaces MAY omit CanonicalHtml — there is no HTML counterpart. The canonical example is a feedback page where agents share their experience about SIL itself.
+                Content: Agent Spaces are public. Access control is out of scope and planned for a future version with authenticated SIL. They may accept direct data submissions (§5.4) without step-by-step forms. Agent Spaces MAY omit CanonicalHtml — there is no HTML counterpart. The canonical example is a feedback page where agents share their experience about SIL itself.
 
             Text
                 Content: Agent Spaces are a first-class concept — not a workaround for missing HTML. They recognise that intelligent agents are an audience in their own right, not just an alternative way to consume human interfaces.
@@ -239,7 +239,7 @@ Page
     STFSyntax
         Type: Section
         Role: Content
-        Caption: 2. STF — SIL Text Format (SYNTAX)
+        Caption: 2. STF — Semantic Text Format (SYNTAX)
 
         Text
             Content: STF is a text format for semantic interface representation. It is the concrete syntax of SIL (Semantic Interface Layer) — the "how to write and read" layer. STF is intentionally designed to be directly interpretable by contemporary language models without task-specific training, fine-tuning, or system prompts. At the same time, it is a formal grammar that can be parsed deterministically by a machine. These two properties are complementary — the parser consumes syntax; the agent consumes semantics.
@@ -468,7 +468,7 @@ Page
                     Content: NEWLINE
 
                 Text
-                    Content: Blank line at depth 0 separates top-level objects. Blank line at depth > 0 is IGNORED by the parser — does not change structure. Permitted in v0.3 (changed from v0.2 where it was a syntax error). Rationale: the self-hosting specification SIL_Specification_v1.0.0.sil contains blank lines between objects for readability. A specification MUST be valid under its own grammar.
+                    Content: Blank line at depth 0 separates top-level objects. Blank line at depth > 0 is IGNORED by the parser — does not change structure. Permitted in the current grammar (it was a syntax error in earlier STF versions). Rationale: the self-hosting specification SIL_Open_Specification.sil contains blank lines between objects for readability. A specification MUST be valid under its own grammar.
 
             Comments
                 Type: Section
@@ -587,7 +587,7 @@ Page
                 Caption: 2.2.4 Multi-line Values
 
                 Text
-                    Content: STF v0.3 does NOT support multi-line property values through continuation lines — a property value always ends at the newline. For multi-line content, use one of two patterns: (1) a nested object of Type: Text with a Content property for the text body, (2) multiple Text objects for paragraphs. For long content such as code blocks or multi-paragraph agent feedback, the RECOMMENDED pattern is a sequence of Text objects, one per paragraph.
+                    Content: STF does NOT support multi-line property values through continuation lines — a property value always ends at the newline. For multi-line content, use one of two patterns: (1) a nested object of Type: Text with a Content property for the text body, (2) multiple Text objects for paragraphs. For long content such as code blocks or multi-paragraph agent feedback, the RECOMMENDED pattern is a sequence of Text objects, one per paragraph.
 
                 Example
                     Type: Text
@@ -1083,7 +1083,7 @@ Page
                 Caption: Data Types
 
                 Text
-                    Content: UserContent (visitor-submitted content — Actions PROHIBITED), Image (image/media reference, no Actions in v0.3).
+                    Content: UserContent (visitor-submitted content — Actions PROHIBITED), Image (image/media reference, no Actions).
 
         BaseRoles
             Type: Section
@@ -1799,7 +1799,7 @@ Page
             Caption: 5.2 Protocol Versioning
 
             Text
-                Content: Clients MAY indicate the SIL protocol version they support using the Accept-Version request header: Accept-Version: sil/0.3. Servers MUST include the Sil-Version response header indicating the protocol version of the response: Sil-Version: 0.3. If the client requests a version the server does not support, the server returns HTTP 400 with an error describing the supported versions. Version negotiation is OPTIONAL in v0.3 — servers MAY ignore Accept-Version and always return the current version.
+                Content: Clients MAY indicate the SIL protocol version they support using the Accept-Version request header: Accept-Version: sil/0.3. Servers MUST include the Sil-Version response header indicating the protocol version of the response: Sil-Version: 0.3. If the client requests a version the server does not support, the server returns HTTP 400 with an error describing the supported versions. Version negotiation is OPTIONAL — servers MAY ignore Accept-Version and always return the current version.
 
         SessionModel
             Type: Section
@@ -1845,7 +1845,7 @@ Page
                     Content: SIL defines session identity and lifecycle (§5.3), but does NOT prescribe which application state is stored in a session. Typical view-state properties include language, theme, menu state, input values, pagination cursor, dialog state, and authentication status — but these are application-defined, not protocol requirements. Implementations MAY store any view-state they require.
 
                     Text
-                        Content: Authentication status MAY be reflected in STF through the Context block. A server MAY include a User object within ApplicationState to indicate the current authentication subject: User { Id: user_123, Display: alice } for authenticated sessions, or User { State: Anonymous } for unauthenticated sessions. This is informational only — SIL v0.3 does not define authentication protocol mechanisms. The presence of a User object does not grant or restrict actions; authorization is server-defined.
+                        Content: Authentication status MAY be reflected in STF through the Context block. A server MAY include a User object within ApplicationState to indicate the current authentication subject: User { Id: user_123, Display: alice } for authenticated sessions, or User { State: Anonymous } for unauthenticated sessions. This is informational only — SIL does not define authentication protocol mechanisms. The presence of a User object does not grant or restrict actions; authorization is server-defined.
 
             ConcurrentIntents
                 Type: Section
@@ -1940,7 +1940,7 @@ Page
                 Caption: Text Intent Format (STF fragment)
 
                 Text
-                    Content: An Intent MAY be expressed as an STF fragment. The fragment is an object with Type: Intent. The Intent name is specified as the Action property using the original STF Action name (PascalCase, e.g. Expand). The Target property holds the object Id. The Action property value maps to the lowercase Intent name in JSON/text formats (e.g. Expand → expand). Parameters are child objects or properties. Example: "Intent\n    Type: Intent\n    Action: Expand\n    Target: main_menu". The STF fragment format is experimental in v0.3 and MAY change in future versions.
+                    Content: An Intent MAY be expressed as an STF fragment. The fragment is an object with Type: Intent. The Intent name is specified as the Action property using the original STF Action name (PascalCase, e.g. Expand). The Target property holds the object Id. The Action property value maps to the lowercase Intent name in JSON/text formats (e.g. Expand → expand). Parameters are child objects or properties. Example: "Intent\n    Type: Intent\n    Action: Expand\n    Target: main_menu". The STF fragment format is experimental and MAY change in future versions.
 
             Idempotency
                 Type: Section
@@ -2181,7 +2181,7 @@ Page
             Caption: 5.8 Media Type
 
             Text
-                Content: STF documents are served with Content-Type: text/plain; charset=utf-8 in HTTP responses. The text/plain media type ensures broad compatibility with HTTP clients, proxies, and tools. The string text/sil is reserved for future IANA registration and MUST NOT be used as a Content-Type in v0.3. For discovery, use Link: </.sil>; rel="sil" (without type= parameter) or the HTML <link> element with rel="sil".
+                Content: STF documents are served with Content-Type: text/plain; charset=utf-8 in HTTP responses. The text/plain media type ensures broad compatibility with HTTP clients, proxies, and tools. The string text/sil is reserved for future IANA registration and MUST NOT be used as a Content-Type. For discovery, use Link: </.sil>; rel="sil" (without type= parameter) or the HTML <link> element with rel="sil".
 
         Caching
             Type: Section
@@ -2358,7 +2358,7 @@ Page
             Caption: 7.1 Threat Model
 
             Text
-                Content: SIL v0.4.0 operates in a public, unauthenticated context. The threat model identifies three actors. Trusted server — the SIL server is trusted to serve correct STF and process Intents correctly. Untrusted visitors — agents (LLMs) and humans are untrusted. They may submit malformed Intents, attempt injection, or exceed rate limits. Non-conformant or compromised server — a server may serve misleading STF (e.g. fake Actions, deceptive Purpose). The agent is responsible for not blindly trusting server-provided executable properties.
+                Content: SIL operates in a public, unauthenticated context. The threat model identifies three actors. Trusted server — the SIL server is trusted to serve correct STF and process Intents correctly. Untrusted visitors — agents (LLMs) and humans are untrusted. They may submit malformed Intents, attempt injection, or exceed rate limits. Non-conformant or compromised server — a server may serve misleading STF (e.g. fake Actions, deceptive Purpose). The agent is responsible for not blindly trusting server-provided executable properties.
 
             Text
                 Content: The server is responsible for: validating all input, enforcing rate limits, isolating sessions, sanitizing output, and structurally separating UserContent from ApplicationContent. The agent is responsible for: not executing commands embedded in UserContent, treating Purpose as descriptive not authoritative, and not sending sensitive data to untrusted SIL endpoints.
@@ -2515,7 +2515,7 @@ Page
                 Content: A Core-conformant implementation is a minimal but complete SIL server. It serves STF pages, processes Intents, and enforces the trust boundary. It does not need to support forms, the Events Profile (§8.4), SSE, WebSocket, or Agent Spaces. Core MUST support the Events object as a protocol-level envelope for ActionError responses — this is distinct from the Events Profile which adds response_mode, state-transition events, domain events, and real-time delivery mechanisms.
 
             Text
-                Content: Core implementations MUST understand the standard Action vocabulary (§3.6.1) and MUST correctly reject unsupported actions with ActionError. Unknown intent names → INVALID_INTENT. Known action on wrong target → INVALID_ACTION. Known action not implemented by this server → UNSUPPORTED_ACTION. Core implementations MAY expose only those actions applicable to the object types they implement — a server without menus is not required to support Expand/Collapse. StateVersion (§9.4) is OPTIONAL in Core for v1.0.0 — servers MAY implement it, but conformance does not require it.
+                Content: Core implementations MUST understand the standard Action vocabulary (§3.6.1) and MUST correctly reject unsupported actions with ActionError. Unknown intent names → INVALID_INTENT. Known action on wrong target → INVALID_ACTION. Known action not implemented by this server → UNSUPPORTED_ACTION. Core implementations MAY expose only those actions applicable to the object types they implement — a server without menus is not required to support Expand/Collapse. StateVersion (§9.4) is OPTIONAL in Core — servers MAY implement it, but conformance does not require it.
 
         CoreReadProfile
             Type: Section
@@ -2571,7 +2571,7 @@ Page
             Caption: 8.8 Claiming Conformance
 
             Text
-                Content: An implementation MAY claim conformance to one or more profiles. Example conformance statement: "This implementation conforms to SIL v1.0.0: core + forms + events." Implementations MUST state which profiles they support using the machine-readable slugs defined in §8.7. Implementations MUST NOT claim conformance to a profile they do not fully implement. Implementations SHOULD document any known limitations or deviations from SHOULD-level requirements.
+                Content: An implementation MAY claim conformance to one or more profiles. Example conformance statement: "This implementation conforms to SIL: core + forms + events." Implementations MUST state which profiles they support using the machine-readable slugs defined in §8.7. Implementations MUST NOT claim conformance to a profile they do not fully implement. Implementations SHOULD document any known limitations or deviations from SHOULD-level requirements.
 
     FutureDirections
         Type: Section
@@ -2579,7 +2579,7 @@ Page
         Caption: 9. Extensions and Future Directions
 
         Text
-            Content: SIL (Semantic Interface Layer) v0.3 is a public draft. This section describes planned extensions for future versions and mechanisms for vendor experimentation within v0.3.
+            Content: SIL (Semantic Interface Layer) is a public specification. This section describes planned extensions for future versions and mechanisms for vendor experimentation within the current protocol.
 
         StabilityMatrix
             Type: Section
@@ -2587,22 +2587,22 @@ Page
             Caption: 9.1 Component Stability
 
             Text
-                Content: Not all parts of SIL v1.0.0 have the same stability. The following matrix indicates which components are stable for implementation and which may change in MINOR versions.
+                Content: Not all parts of SIL have the same stability. The following matrix indicates which components are stable for implementation and which may change in MINOR versions.
 
             StableComponent
                 Type: Text
                 Caption: STF grammar
-                Content: Stable since v0.3. Implementations MAY rely on the grammar as specified.
+                Content: Stable since the initial publication. Implementations MAY rely on the grammar as specified.
 
             StableComponent
                 Type: Text
                 Caption: Core vocabulary
-                Content: Stable since v0.3. Standard Types, Roles, States, Actions, Properties will not change incompatibly.
+                Content: Stable since the initial publication. Standard Types, Roles, States, Actions, Properties will not change incompatibly.
 
             StableComponent
                 Type: Text
                 Caption: Security model
-                Content: Stable since v0.3. Structural trust boundary and privilege lattice are normative.
+                Content: Stable since the initial publication. Structural trust boundary and privilege lattice are normative.
 
             DraftComponent
                 Type: Text
@@ -2632,7 +2632,7 @@ Page
             ExperimentalComponent
                 Type: Text
                 Caption: StateVersion
-                Content: Experimental. Designed in v0.3, planned for Core in v0.4.
+                Content: Experimental. Designed in the initial specification, planned for Core in a future 1.x release.
 
             ExperimentalComponent
                 Type: Text
@@ -2645,13 +2645,13 @@ Page
             Caption: 9.2 Specification Versioning
 
             Text
-                Content: SIL distinguishes two version numbers. The specification revision (e.g. 1.0.0) tracks changes to this document — it follows a SemVer-inspired policy. The protocol version (e.g. 0.3, appearing in Context.Version and Sil-Version header) identifies the wire protocol. Multiple specification revisions may share the same protocol version if they do not change the protocol itself. As of v1.0.0, the protocol version remains 0.3.
+                Content: SIL distinguishes two version numbers. The specification revision (for example, the version stated in the document header) tracks changes to this document — it follows a SemVer-inspired policy. The protocol version (e.g. 0.3, appearing in Context.Version and Sil-Version header) identifies the wire protocol. Multiple specification revisions may share the same protocol version if they do not change the protocol itself. As of the current revision, the protocol version remains 0.3.
 
             Text
-                Content: SIL uses a SemVer-inspired compatibility policy. Before v1.0, the Core Profile is not frozen — minor releases (0.4, 0.5) may contain breaking changes based on implementer feedback. Production deployments SHOULD pin to a specific specification version. Starting with v1.0, normal Semantic Versioning compatibility guarantees apply: MAJOR for breaking Core changes, MINOR for backward-compatible additions, PATCH for clarifications and errata.
+                Content: SIL uses a SemVer-inspired compatibility policy. Before the first stable release, the Core Profile is not frozen — MINOR releases may contain breaking changes based on implementer feedback. Production deployments SHOULD pin to a specific specification revision. Starting with the first stable release, normal Semantic Versioning compatibility guarantees apply: MAJOR for breaking Core changes, MINOR for backward-compatible additions, PATCH for clarifications and errata.
 
             Text
-                Content: v1.0.0 status — Public Draft. This version consolidates feedback from 10+ rounds of review. The STF grammar, core vocabulary, and security model are stable. The Core Profile (§8.1) is stable enough for experimental implementations and prototyping. MINOR updates may introduce breaking changes. v1.0 will freeze the Core Profile with a formal stability guarantee.
+                Content: Current status — Public Draft. This version consolidates feedback from 10+ rounds of review. The STF grammar, core vocabulary, and security model are stable. The Core Profile (§8.1) is stable enough for experimental implementations and prototyping. MINOR updates may introduce breaking changes. The first stable release will freeze the Core Profile with a formal stability guarantee.
 
         ExtensionMechanism
             Type: Section
@@ -2673,28 +2673,28 @@ Page
                 Content: Client usage: after a GET, the client MAY include the received StateVersion in the next Intent: {"intent":"submit","target":"form_btn","state_version":184}. If the server's current StateVersion does not match, the server returns ActionError with Code: STALE_STATE. The client MUST re-fetch via GET before retrying.
 
             Text
-                Content: StateVersion is experimental in v0.3 — it appears in Context, the state_version Intent field, and the STALE_STATE error code are defined, but server support is OPTIONAL. Conformant clients MUST handle both the presence and absence of StateVersion. StateVersion is planned for Core Profile in v0.4.
+                Content: StateVersion is experimental — it appears in Context, the state_version Intent field, and the STALE_STATE error code are defined, but server support is OPTIONAL (currently OPTIONAL in Core, §8.1). Conformant clients MUST handle both the presence and absence of StateVersion. StateVersion may become required in Core in a future 1.x release.
 
         AuthenticatedSIL
             Type: Section
             Role: Content
-            Caption: 9.5 Authenticated SIL (planned v0.4+)
+            Caption: 9.5 Authenticated SIL (planned for a future 1.x release)
 
             Text
-                Content: SIL v1.0.0 is scoped to public interfaces only. Future versions will define: user authentication binding to sessions, access-controlled Agent Spaces, user-specific state (account, preferences, history), authenticated actions (purchase, download, delete). The session model (§5.3) is designed to accommodate authentication — upgrading an anonymous session to an authenticated session is a planned capability.
+                Content: SIL is scoped to public interfaces only. Future versions will define: user authentication binding to sessions, access-controlled Agent Spaces, user-specific state (account, preferences, history), authenticated actions (purchase, download, delete). The session model (§5.3) is designed to accommodate authentication — upgrading an anonymous session to an authenticated session is a planned capability.
 
         StreamableSTF
             Type: Section
             Role: Content
-            Caption: 9.6 Streamable STF (planned v0.4+)
+            Caption: 9.6 Streamable STF (future extension)
 
             Text
-                Content: STF documents are currently served as complete units. Future versions may support: progressive rendering (sections streamed as they become available), incremental updates (only changed objects, not full page), STF diff format (efficient state synchronization). The Events mode (§5.4) is a first step toward incremental updates.
+                Content: STF documents are currently served as complete units. Real-time and incremental delivery are already available through the Events Profile with SSE (§5.6) and WebSocket (§5.7) transports. Future versions may further support: progressive rendering (sections streamed as they become available) and incremental updates via an STF diff format for efficient state synchronization.
 
         FragmentIdentifiers
             Type: Section
             Role: Content
-            Caption: 9.7 Fragment Identifiers (planned v0.4+)
+            Caption: 9.7 Fragment Identifiers (future extension)
 
             Text
                 Content: Cross-page references using /page.sil#object-id syntax. Allows an agent on page A to reference an object on page B without loading page B. Enables: deep linking into specific sections, cross-page action routing, navigation to a specific object rather than page top.
@@ -2710,13 +2710,13 @@ Page
             Text
                 Content: Vendor extensions that prove broadly useful MAY be promoted to the core vocabulary in a future MINOR version. The promotion process requires: at least two independent implementations using the extension, demonstrated interoperability, and consensus that the extension addresses a need beyond a single application domain.
 
-        BeyondV04
+        LongerTerm
             Type: Section
             Role: Content
-            Caption: 9.9 Beyond v0.4
+            Caption: 9.9 Longer-Term Possibilities
 
             Text
-                Content: Longer-term possibilities include: STF binary encoding for minimal token usage, SIL-to-SIL references (federated SIL endpoints), SIL as agent-to-agent communication format, integration with MCP (Model Context Protocol) tools, formal verifier for SIL implementations, SIL browser — a human UI for navigating SIL documents directly. These are possibilities, not commitments. The priority for v0.4 is stability, clarity, and broad implementability.
+                Content: Longer-term possibilities include: STF binary encoding for minimal token usage, SIL-to-SIL references (federated SIL endpoints), SIL as agent-to-agent communication format, integration with MCP (Model Context Protocol) tools, formal verifier for SIL implementations, SIL browser — a human UI for navigating SIL documents directly. These are possibilities, not commitments. The priority for the next releases is stability, clarity, and broad implementability.
 
     TestVectors
         Type: Section

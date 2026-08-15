@@ -3,7 +3,7 @@
 ## Concept of the Specification
 
 **Version:** 0.3
-**Status:** Aligned with SIL Specification v1.0.0
+**Status:** Aligned with the SIL Specification
 **Author:** AIS Platform
 **Date:** 2026-08-09
 
@@ -39,7 +39,7 @@ HTML describes documents. CSS describes presentation. JavaScript describes behav
 
 The Web lacks a standardized semantic layer whose primary consumer is an intelligent software system.
 
-**Semantic Interface Layer (SIL)** is that missing layer — and as of version 1.0.0, it is no longer a proposal. It is a published, self-hosting specification with a working reference implementation.
+**Semantic Interface Layer (SIL)** is that missing layer: a published, self-hosting specification with a working reference implementation.
 
 ---
 
@@ -83,11 +83,11 @@ The reference implementation targets the Web, but SIL is designed as a general s
 
 # 6. What SIL Has Become
 
-The concept of SIL was first articulated in version 0.2 as a vision. Since then, the specification has undergone over ten rounds of review by flagship AI models under the AIS Agora methodology, evolved through a v0.3 protocol, and reached version 1.0.0 as a self-hosting document — the specification is written in its own format and is a conformant STF document under its own grammar.
+SIL has matured from a conceptual sketch into a tangible, self-hosting specification — written in its own format and a conformant STF document under its own grammar.
 
-What began as a conceptual sketch is now a tangible reality:
+SIL today comprises:
 
-- **STF (SIL Text Format)** — a concrete syntax defined by a formal EBNF grammar. Indentation-based (4 spaces), PascalCase object names, colon-separated properties. No brackets. No quotation marks for keys. A model reads it like a human reads an outline.
+- **STF (Semantic Text Format)** — a concrete syntax defined by a formal EBNF grammar. Indentation-based (4 spaces), PascalCase object names, colon-separated properties. No brackets. No quotation marks for keys. A model reads it like a human reads an outline.
 
 - **Intent Protocol** — agents interact by sending Intents (expand, collapse, select, toggle, activate, input, submit, close, loadmore) via POST to the same `.sil` URL they read with GET. One endpoint, two methods. After every action, the server returns the full page state — the agent does not compute changes, it receives them.
 
@@ -99,7 +99,7 @@ What began as a conceptual sketch is now a tangible reality:
 
 - **Agent Spaces** — pages that exist only in SIL, without any HTML counterpart. Agents are first-class users, not an afterthought.
 
-- **Self-Hosting Specification** — SIL v1.0.0 at 3,305 lines is a valid STF document under its own grammar. 18 standardized error codes. 40 conformance test vectors in Appendix A. The standard and the example are one.
+- **Self-Hosting Specification** — a 3,305-line valid STF document under its own grammar. 18 standardized error codes. 40 conformance test vectors in Appendix A. The standard and the example are one.
 
 ---
 
@@ -289,7 +289,7 @@ The Application Model represents the application's domain knowledge, business lo
 
 # 14. Core Semantic Model in Practice
 
-SIL v1.0.0 defines 21 standard properties, 27 object types, 22 roles, 11 states, 10 actions, 6 Origin values, 18 error codes, and 3 Knowledge Zones. Rather than enumerate them here, the following table illustrates the core concepts through what they enable:
+SIL defines 21 standard properties, 27 object types, 22 roles, 11 states, 10 actions, 6 Origin values, 18 error codes, and 3 Knowledge Zones. Rather than enumerate them here, the following table illustrates the core concepts through what they enable:
 
 | Concept | What it answers |
 |---------|----------------|
@@ -313,17 +313,17 @@ Each concept exists because an agent needs to know it.
 
 # 15. A Live Reference Implementation
 
-The AIS Platform website (`ais-platform.dev`) serves as the reference implementation of SIL v1.0.0. Every public page has a `.sil` counterpart. An agent can navigate the entire site — 19 pages — discover product cards, expand menus, switch language, toggle theme, read pricing, submit feedback — all through the semantic interface, without parsing a single line of HTML.
+The AIS Platform website (`ais-platform.dev`) is the reference implementation of SIL. Every public page has a `.sil` counterpart. An agent can navigate the entire site — 19 pages — discover product cards, expand menus, switch language, toggle theme, read pricing, submit feedback — all through the semantic interface, without parsing a single line of HTML.
 
 The implementation covers all five conformance profiles: Core (STF + GET/POST), Core Read (static documentation), Forms (input, validation, submit), Events (SSE and WebSocket), and Agent Spaces (the `/feedback.sil` agent-only page).
 
-The STF documents served by the reference implementation are conformant to the specification they implement — the site itself passes the grammar defined in SIL v1.0.0.
+The STF documents served by the reference implementation are conformant to the specification they implement — the site itself passes the grammar it defines.
 
 ---
 
 # 16. Example Agent Interaction (Actual)
 
-This is not a hypothetical. It happened during the development of SIL v1.0.0.
+This is not a hypothetical — it is drawn from the actual development of SIL.
 
 **Discovery.**
 An agent fetches `https://ais-platform.dev/.well-known/sil` and receives a JSON array of five endpoints with their conformance profiles and capabilities. No authentication required.
@@ -346,7 +346,7 @@ No human was involved in any of these steps. No HTML was parsed. No JavaScript w
 
 # 17. Future Evolution
 
-SIL v1.0.0 is a public draft. The STF grammar, core vocabulary, and security model are stable. The protocol, sessions, and Agent Spaces are published for implementation and feedback.
+SIL is a published specification. The STF grammar, core vocabulary, and security model are stable. The protocol, sessions, and Agent Spaces are published for implementation and feedback.
 
 Planned for future versions:
 
@@ -382,7 +382,7 @@ Agents do not need another graphical interface. Nor do they simply need access t
 
 SIL introduces no new business logic. It changes no application behavior. It enables applications to express what they already know about themselves in a form that intelligent agents can understand directly.
 
-SIL is not a replacement for existing technologies. It is an additional semantic layer intended to make interactive software understandable by design — and as of v1.0.0, it is no longer a proposal. It is a published specification with a working reference implementation, developed in the open, ready for the community to adopt, implement, and extend.
+SIL is not a replacement for existing technologies. It is an additional semantic layer intended to make interactive software understandable by design — a published specification with a working reference implementation, developed in the open, ready for the community to adopt, implement, and extend.
 
 AIS Platform proposes Semantic Interface Layer as an open specification and invites researchers, software engineers, AI developers, standards organizations, and the broader technical community to participate in its implementation, discussion, and evolution.
 

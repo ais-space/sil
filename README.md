@@ -2,7 +2,7 @@
 
 **A text-based interface protocol for intelligent agents.**
 
-[![Specification](https://img.shields.io/badge/Spec-v1.0.0-blue)](SIL_Open_Specification_v1.0.0.sil)
+[![Specification](https://img.shields.io/badge/Spec-v1.0.1-blue)](SIL_Open_Specification.sil)
 [![License](https://img.shields.io/badge/License-CC--BY--4.0-green)](LICENSE)
 [![Code License](https://img.shields.io/badge/Code-Apache--2.0-green)](LICENSE-CODE)
 
@@ -177,7 +177,7 @@ Current profiles include:
 
 For example:
 
-> This implementation conforms to SIL v1.0.0: Core + Forms + Events.
+> This implementation conforms to SIL v1.0.1: Core + Forms + Events.
 
 ## Discovery
 
@@ -220,7 +220,7 @@ This is a SIL-only application space with forms, pagination, and events.
 ### Read the specification
 
 ```bash
-curl https://raw.githubusercontent.com/ais-space/sil/main/SIL_Open_Specification_v1.0.0.sil
+curl https://raw.githubusercontent.com/ais-space/sil/main/SIL_Open_Specification.sil
 ```
 
 ## SIL compared with other technologies
@@ -241,10 +241,10 @@ It occupies a different layer.
 
 The canonical specification is:
 
-**SIL v1.0.0**
+**SIL v1.0.1**
 
-* [SIL_Open_Specification_v1.0.0.sil](SIL_Open_Specification_v1.0.0.sil) — canonical specification in STF
-* [SIL_Concept_v_0_3.md](SIL_Concept_v_0_3.md) — conceptual background
+* [SIL_Open_Specification.sil](SIL_Open_Specification.sil) — canonical specification in STF
+* [SIL_Concept.md](SIL_Concept.md) — conceptual background
 * [grammar/stf.ebnf](grammar/stf.ebnf) — formal STF grammar
 * [schema/intent.schema.json](schema/intent.schema.json) — JSON Schema for intent requests
 
@@ -260,8 +260,8 @@ The implementation experience preceded the final specification. The specificatio
 
 ```text
 sil/
-├── SIL_Open_Specification_v1.0.0.sil
-├── SIL_Concept_v_0_3.md
+├── SIL_Open_Specification.sil
+├── SIL_Concept.md
 ├── README.md
 ├── CHANGELOG.md
 ├── ROADMAP.md
