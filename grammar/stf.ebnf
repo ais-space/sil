@@ -1,6 +1,7 @@
 (* STF — Semantic Text Format *)
-(* Formal EBNF Grammar — SIL Specification v1.0.1 *)
-(* This is a machine-readable extract from §2.2.1 of the specification *)
+(* Formal EBNF Grammar — extracted from STF core (no version pin) *)
+(* This is a machine-readable extract from §2.2.1 of the STF core specification *)
+(* Source: STF core (https://github.com/ais-space/stf) — normative by reference, no version pinned *)
 
 (* ── Character Classes ─────────────────────────────────── *)
 UPPER_ALPHA = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I"
@@ -28,7 +29,8 @@ vendor_key   = reverse_domain, ".", UPPER_ALPHA, { ALPHA | DIGIT } ;
 reverse_domain = LOWER_ALPHA, { LOWER_ALPHA | DIGIT },
                  { ".", LOWER_ALPHA, { LOWER_ALPHA | DIGIT } } ;
 
-property_value = { char - NEWLINE } ;  (* any characters except newline *)
+CHAR         = ? any Unicode scalar value (see §2.3.7 of STF core for characters that MUST be stripped) ? ;
+property_value = { CHAR - NEWLINE } ;  (* any characters except newline *)
 
 blank_line = NEWLINE ;
 

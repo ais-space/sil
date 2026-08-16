@@ -2,7 +2,7 @@
 
 **A text-based interface protocol for intelligent agents.**
 
-[![Specification](https://img.shields.io/badge/Spec-v1.0.1-blue)](SIL_Open_Specification.sil)
+[![Specification](https://img.shields.io/badge/Spec-v1.1.0-blue)](SIL_Open_Specification.sil)
 [![License](https://img.shields.io/badge/License-CC--BY--4.0-green)](LICENSE)
 [![Code License](https://img.shields.io/badge/Code-Apache--2.0-green)](LICENSE-CODE)
 
@@ -70,25 +70,32 @@ With a conventional interface, the agent may have to infer semantics from presen
 
 ## SIL and STF
 
-SIL defines the **interface protocol and semantic model**.
+SIL defines an **application vocabulary and interface protocol** for intelligent agents.
 
-STF (Semantic Text Format) is the structured text language used by SIL to represent that model.
+As of SIL v1.1.0, the underlying syntax and semantic core are no longer defined inline. SIL is now specified as an extension of **STF core** — a separate, standalone specification (Semantic Text Format) published independently at [github.com/ais-space/stf](https://github.com/ais-space/stf).
 
-The distinction is important:
+The relationship is now:
 
 ```text
-SIL
- ├── interface model
- ├── discovery
- ├── interaction
- ├── security model
- ├── conformance profiles
- └── STF representation
+STF core (standalone specification)
+ ├── syntax (§2)
+ ├── semantic model (§3)
+ ├── structural security (§4)
+ └── data / serialization model (§5, §6)
+
+SIL v1.1.0 (this specification)
+ ├── SIL Vocabulary — application extension of STF core (§3)
+ ├── Application Vocabulary (§4)
+ ├── SIL Protocol — discovery & interaction (§5)
+ ├── Interaction Patterns (§6)
+ ├── Security-specific guidance (§7)
+ ├── Conformance profiles (§8)
+ └── Extensions & Future Directions (§9)
 ```
 
-STF is intentionally textual and hierarchical. Its syntax is designed to remain readable by humans while being straightforward for language models to interpret.
+STF core is referenced **normatively, by reference, without version pinning**: any SIL document is, by construction, a valid STF document. When STF core evolves, SIL tracks it at the application layer. STF core is intentionally textual and hierarchical, designed to remain readable by humans while being straightforward for language models to interpret.
 
-The specification itself is written in STF. This makes the specification a self-describing, conformant document rather than merely a document *about* the format.
+The SIL specification is itself written in STF, making it a self-describing, conformant document rather than merely a document *about* the format.
 
 ## How it works
 
@@ -177,7 +184,7 @@ Current profiles include:
 
 For example:
 
-> This implementation conforms to SIL v1.0.1: Core + Forms + Events.
+> This implementation conforms to SIL v1.1.0: Core + Forms + Events.
 
 ## Discovery
 
@@ -241,7 +248,7 @@ It occupies a different layer.
 
 The canonical specification is:
 
-**SIL v1.0.1**
+**SIL v1.1.0**
 
 * [SIL_Open_Specification.sil](SIL_Open_Specification.sil) — canonical specification in STF
 * [SIL_Concept.md](SIL_Concept.md) — conceptual background

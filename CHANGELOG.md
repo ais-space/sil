@@ -4,6 +4,31 @@ All notable changes to the SIL Specification.
 
 ---
 
+## v1.1.0 (2026-08-16) — Hard Split: STF Core Extracted to Standalone Normative Reference
+
+This release restructures the specification without changing any application-level (SIL) content. It is backwards compatible for all SIL implementations.
+
+### Structural change
+- **Removed the inline STF core from SIL.** The syntax, semantic model, structural-security model, and data/serialization model are no longer defined inside the SIL specification.
+- **STF core is now a separate, standalone specification**, published independently at [github.com/ais-space/stf](https://github.com/ais-space/stf) (tag v0.1.0).
+- **SIL references STF core normatively, by reference, without version pinning.** Any SIL document is, by construction, a valid STF document; SIL tracks core evolution at the application layer.
+- New §2 "STF Core (Normative Reference)" replaces the former §2 STF Syntax. SIL Vocabulary (§3) is now explicitly framed as an extension of STF core. Application Vocabulary, SIL Protocol, Interaction Patterns, Security-specific, Conformance, and Extensions (§4–§9) are unchanged in substance.
+
+### Grammar
+- `grammar/stf.ebnf` now tracks STF core (GrammarVersion 1.0.1), including the `CHAR` terminal; header adjusted to mark it as extracted from STF core with no version pin.
+
+### Compatibility
+- No SIL application-vocabulary, protocol, or grammar changes.
+- Fully backwards compatible (the split removes duplicated core material; SIL semantics are preserved).
+- Specification reduced from 3,305 to 2,465 lines by removing the duplicated core.
+
+### Notes
+- **Origin semantics (correction, not a vocabulary change).** The former inline SIL §3.8 description of Origin propagation was defective: it treated `UserContent` as defaulting to `External` and used `effective = min(explicit, zone)`. SIL no longer defines Origin; it references the STF core Trust Model (STF core §4.2.2), which defines the corrected propagation (`UserContent` is always untrusted; `effective = min(base_trust, zone_max_trust)`). This corrects a defective SIL-internal description; SIL's application vocabulary is unchanged.
+- **`Format` behavior.** The `Format` property's normative behavior (all values transmitted as text; `string` assumed when `Format` is absent; implementations SHOULD respect `Format` when validating input) and the per-format examples are defined in STF core §3.2.1. SIL references them by reference; this material is STF core semantics, not SIL-specific.
+- **`Contact` property restored.** The `Contact` property (SIL-specific, Data class) for `UserContent` was omitted when the STF core was extracted, but the live SIL implementation (e.g. `/feedback.sil`) uses it. It is now defined in §3.1 SIL-Specific Properties and listed among the typical `UserContent` properties in §3.2.
+
+---
+
 ## v1.0.1 (2026-08-15) — Documentation & Nomenclature Corrections
 
 ### Corrections

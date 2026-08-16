@@ -83,11 +83,13 @@ The reference implementation targets the Web, but SIL is designed as a general s
 
 # 6. What SIL Has Become
 
-SIL has matured from a conceptual sketch into a tangible, self-hosting specification — written in its own format and a conformant STF document under its own grammar.
+SIL has matured from a conceptual sketch into a tangible, self-hosting specification — written in STF and a conformant STF document under the STF core grammar.
+
+As of SIL v1.1.0, SIL is specified as an extension of **STF core**, a standalone specification published independently. SIL no longer redefines the syntax or semantic core; it adds an application vocabulary and an interface protocol on top of STF core, referenced normatively without version pinning.
 
 SIL today comprises:
 
-- **STF (Semantic Text Format)** — a concrete syntax defined by a formal EBNF grammar. Indentation-based (4 spaces), PascalCase object names, colon-separated properties. No brackets. No quotation marks for keys. A model reads it like a human reads an outline.
+- **STF core (standalone specification)** — the concrete syntax and semantic model, defined by a formal EBNF grammar and published separately at [github.com/ais-space/stf](https://github.com/ais-space/stf). Indentation-based (4 spaces), PascalCase object names, colon-separated properties. No brackets. No quotation marks for keys. A model reads it like a human reads an outline. SIL builds on it rather than redefining it.
 
 - **Intent Protocol** — agents interact by sending Intents (expand, collapse, select, toggle, activate, input, submit, close, loadmore) via POST to the same `.sil` URL they read with GET. One endpoint, two methods. After every action, the server returns the full page state — the agent does not compute changes, it receives them.
 
@@ -99,7 +101,7 @@ SIL today comprises:
 
 - **Agent Spaces** — pages that exist only in SIL, without any HTML counterpart. Agents are first-class users, not an afterthought.
 
-- **Self-Hosting Specification** — a 3,305-line valid STF document under its own grammar. 18 standardized error codes. 40 conformance test vectors in Appendix A. The standard and the example are one.
+- **Self-Hosting Specification** — a valid STF document that references STF core normatively. The SIL Vocabulary, SIL Protocol, Interaction Patterns, Security-specific guidance, and Conformance profiles (18 standardized error codes, 40 conformance test vectors in Appendix A) form the application layer on top of STF core. The standard and the example are one.
 
 ---
 

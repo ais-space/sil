@@ -11,7 +11,15 @@
 - [x] 18 error codes, 40 test vectors
 - [x] Self-hosting specification
 
-## v1.1 (planned)
+## v1.1.0 (Released 2026-08-16) — Hard Split: STF Core Extracted
+
+- [x] STF core removed from SIL and published as a standalone specification (github.com/ais-space/stf, v0.1.0)
+- [x] SIL references STF core normatively, without version pinning
+- [x] New §2 "STF Core (Normative Reference)"; §3 SIL Vocabulary reframed as extension of STF core
+- [x] `grammar/stf.ebnf` tracks STF core (GrammarVersion 1.0.1, `CHAR` terminal)
+- [x] Specification reduced from 3,305 to 2,465 lines (no application-level changes)
+
+## v1.1 (planned — post-split)
 
 - [ ] CORS section in HTTP Binding
 - [ ] Client Profile (minimal client: parse STF + send Intent + handle ActionError)
@@ -19,7 +27,6 @@
 - [ ] JSON Schema for Intent POST body
 - [ ] End-to-end interaction example in documentation
 - [ ] Machine-readable conformance test suite (runnable tests from Appendix A)
-- [ ] Formal grammar file (`.ebnf`) as separate artifact
 - [ ] TextMate/tree-sitter grammar for `.sil` syntax highlighting
 - [ ] Governance model: contribution process documented
 
