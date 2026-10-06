@@ -4,6 +4,10 @@ All notable changes to the SIL Specification.
 
 ---
 
+## v1.1.1 (2026-10-06) — Contact correction
+
+- **Contact address fixed**: the `security@ais-platform.dev` mailbox does not exist; replaced with `support@ais-platform.dev` in `README.md` and `SECURITY.md`. No specification content changed.
+
 ## v1.1.0 (2026-08-16) — Hard Split: STF Core Extracted to Standalone Normative Reference
 
 This release restructures the specification without changing any application-level (SIL) content. It is backwards compatible for all SIL implementations.
