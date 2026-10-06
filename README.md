@@ -353,6 +353,6 @@ Implementations do not inherit these licenses and may be released under other li
 ## Contact
 
 * **Specification issues:** [GitHub Issues](https://github.com/ais-space/sil/issues)
-* **Security:** [security@ais-platform.dev](mailto:security@ais-platform.dev)
+* **Security:** [support@ais-platform.dev](mailto:support@ais-platform.dev)
 * **Website:** [ais-platform.dev](https://ais-platform.dev)
 

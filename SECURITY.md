@@ -4,7 +4,7 @@
 
 If you discover a security vulnerability in the SIL specification, reference implementation, or related code in this repository, please report it privately.
 
-**Contact:** security@ais-platform.dev
+**Contact:** support@ais-platform.dev
 
 **Response time:** We aim to acknowledge reports within 48 hours and provide an initial assessment within 5 business days.
 
