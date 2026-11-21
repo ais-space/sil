@@ -4,6 +4,10 @@ All notable changes to the SIL Specification.
 
 ---
 
+## v1.1.2 (2026-11-21) — Reference site offline note
+
+- **Documentation update**: removed live quickstart links to `ais-platform.dev` in `README.md` and marked the reference implementation in `SIL_Concept.md` (§15–§16) as an offline historical record (offline since August 2026). No specification content changed.
+
 ## v1.1.1 (2026-10-06) — Contact correction
 
 - **Contact address fixed**: the `security@ais-platform.dev` mailbox does not exist; replaced with `support@ais-platform.dev` in `README.md` and `SECURITY.md`. No specification content changed.

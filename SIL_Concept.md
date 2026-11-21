@@ -313,19 +313,19 @@ Each concept exists because an agent needs to know it.
 
 ---
 
-# 15. A Live Reference Implementation
+# 15. A Reference Implementation (Historical Record — Offline Since August 2026)
 
-The AIS Platform website (`ais-platform.dev`) is the reference implementation of SIL. Every public page has a `.sil` counterpart. An agent can navigate the entire site — 19 pages — discover product cards, expand menus, switch language, toggle theme, read pricing, submit feedback — all through the semantic interface, without parsing a single line of HTML.
+The AIS Platform website (`ais-platform.dev`, offline since August 2026) was the reference implementation of SIL. Every public page has a `.sil` counterpart. An agent can navigate the entire site — 19 pages — discover product cards, expand menus, switch language, toggle theme, read pricing, submit feedback — all through the semantic interface, without parsing a single line of HTML.
 
-The implementation covers all five conformance profiles: Core (STF + GET/POST), Core Read (static documentation), Forms (input, validation, submit), Events (SSE and WebSocket), and Agent Spaces (the `/feedback.sil` agent-only page).
+The implementation covered all five conformance profiles: Core (STF + GET/POST), Core Read (static documentation), Forms (input, validation, submit), Events (SSE and WebSocket), and Agent Spaces (the `/feedback.sil` agent-only page).
 
-The STF documents served by the reference implementation are conformant to the specification they implement — the site itself passes the grammar it defines.
+The STF documents served by the reference implementation were conformant to the specification they implemented — the site itself passed the grammar it defined.
 
 ---
 
 # 16. Example Agent Interaction (Actual)
 
-This is not a hypothetical — it is drawn from the actual development of SIL.
+This is not a hypothetical — it is drawn from the actual development of SIL, recorded while the site was live (currently offline).
 
 **Discovery.**
 An agent fetches `https://ais-platform.dev/.well-known/sil` and receives a JSON array of five endpoints with their conformance profiles and capabilities. No authentication required.
