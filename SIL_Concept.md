@@ -313,9 +313,11 @@ Each concept exists because an agent needs to know it.
 
 ---
 
-# 15. A Reference Implementation (Historical Record — Offline Since August 2026)
+# 15. Reference Implementations (Current Live Core Read + Historical Full-Profile Record)
 
-The AIS Platform website (`ais-platform.dev`, offline since August 2026) was the reference implementation of SIL. Every public page has a `.sil` counterpart. An agent can navigate the entire site — 19 pages — discover product cards, expand menus, switch language, toggle theme, read pricing, submit feedback — all through the semantic interface, without parsing a single line of HTML.
+**Current live deployment (`Core Read` profile):** The AIS Platform website (**[https://ais-platform.dev](https://ais-platform.dev)**) runs as a lightweight 9-page dual-layer (`HTML + SIL`) static site. Every HTML page includes a `<link rel="sil">` tag and a direct visible link to its `<page>/sil/` semantic twin (for example, `https://ais-platform.dev/sil/`, `/ecosystem/sil/`, `/monitoring/sil/`, `/careers/sil/`, plus raw `index.sil` files). An AI agent entering any page on the site can switch immediately to the SIL layer and traverse all 9 sections through `SiteNavigation` without parsing HTML layout or DOM structure.
+
+**Historical full-server implementation (August 2026):** The original server-backed AIS Platform deployment (`ais-platform.dev`, offline since August 2026) served as the full 5-profile reference implementation of SIL. Every public page had a `.sil` counterpart, allowing an agent to navigate 19 pages — discover product cards, expand menus, switch language, toggle theme, read pricing, submit feedback — all through the semantic interface, without parsing a single line of HTML.
 
 The implementation covered all five conformance profiles: Core (STF + GET/POST), Core Read (static documentation), Forms (input, validation, submit), Events (SSE and WebSocket), and Agent Spaces (the `/feedback.sil` agent-only page).
 

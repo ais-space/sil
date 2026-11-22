@@ -4,9 +4,9 @@ All notable changes to the SIL Specification.
 
 ---
 
-## v1.1.2 (2026-11-21) — Reference site offline note
+## v1.1.2 (2026-11-22) — Live Core Read SIL demonstration on ais-platform.dev
 
-- **Documentation update**: removed live quickstart links to `ais-platform.dev` in `README.md` and marked the reference implementation in `SIL_Concept.md` (§15–§16) as an offline historical record (offline since August 2026). No specification content changed.
+- **Live SIL demonstration updated**: `README.md` Quickstart and Contact sections now link to the new 9-page dual-layer (`HTML + SIL`, `Core Read` profile) deployment at `https://ais-platform.dev` (`https://ais-platform.dev/sil/` and raw `index.sil`), and `SIL_Concept.md` (§15–§16) distinguishes the current live `Core Read` site from the August 2026 server-backed historical record. No specification content changed.
 
 ## v1.1.1 (2026-10-06) — Contact correction
 

@@ -210,13 +210,22 @@ Discovery is optional and implementation-dependent: a site must explicitly provi
 
 ## Quickstart
 
+### Explore a live SIL site (Core Read profile)
+
+The AIS Platform site (**[https://ais-platform.dev](https://ais-platform.dev)**) is a live multi-page dual-layer (`HTML + SIL`) deployment: every page exposes a direct link to its `<page>/sil/` semantic layer in the header (viewable directly in a browser or by an AI agent), as well as a raw `index.sil` document:
+
+* Browser & agent-readable SIL layer: **[https://ais-platform.dev/sil/](https://ais-platform.dev/sil/)** (plus `/ecosystem/sil/`, `/ecosystem/sil-spec/sil/`, `/monitoring/sil/`, `/careers/sil/`)
+* Raw `.sil` via `curl`:
+
+```bash
+curl https://ais-platform.dev/index.sil
+```
+
 ### Read the specification
 
 ```bash
 curl https://raw.githubusercontent.com/ais-space/sil/main/SIL_Open_Specification.sil
 ```
-
-A live public SIL interface is not currently deployed (the previous reference site is offline); the specification file above is the canonical example.
 
 ## SIL compared with other technologies
 
@@ -342,4 +351,5 @@ Implementations do not inherit these licenses and may be released under other li
 
 * **Specification issues:** [GitHub Issues](https://github.com/ais-space/sil/issues)
 * **Security:** [support@ais-platform.dev](mailto:support@ais-platform.dev)
+* **Website (live HTML + SIL demo):** [ais-platform.dev](https://ais-platform.dev) · [SIL Layer (/sil/)](https://ais-platform.dev/sil/)
 
